@@ -9,7 +9,8 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-        assert self.current_url(*LoginPageLocators.LOGIN_URL), "Login url is not presented"
+        assert self.get_current_url() == LoginPageLocators.LOGIN_URL, \
+            f"Expected url is '{LoginPageLocators.LOGIN_URL}', but was '{self.get_current_url()}'"
         assert True
 
     def should_be_login_form(self):
